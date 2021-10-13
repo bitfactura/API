@@ -12,7 +12,7 @@ Los ejemplos de API de BitFactura se encuentran tambien en el sistema de BitFact
   * Descargar facturas del mes actual
   * Descargar facturas con las posiciones
   * Facturas de un cliente
-  * Descargar facturas por ID
+  * Descargar facturas por su ID
   * Descargar PDF
   * Enviar facturas al cliente por e-mail
   * Añadir nueva factura (utilizando ID del cliente, producto, vendedor)
@@ -32,22 +32,40 @@ Los ejemplos de API de BitFactura se encuentran tambien en el sistema de BitFact
 * Ejemplos del uso - compra del curso
 * Facturas - especificación, tipos de campos
 * Clientes
-  * lista de clientes
-  * buscar de clientes por nombre, e-mail, nombre corto o número NIF
-  * descargar un cliente seleccionado por ID
-  * descargar un cliente seleccionado por ID externo
-  * añadir un cliente
-  * actualizar un cliente
-  * eliminar un cliente
+  * Lista de clientes
+  * Buscar de clientes por nombre, e-mail, nombre corto o número NIF
+  * Descargar un cliente seleccionado por su ID
+  * Descargar un cliente seleccionado por su ID externo
+  * Añadir un cliente
+  * Actualizar un cliente
+  * Eliminar un cliente
 * Productos
-  * lista de productos
-  * lista de productos con el estado del stock seleccionado
-  * descargar un producto seleccionado por ID
-  * descargar un producto seleccionado por ID con el estado del stock escogido
-  * añadir un producto
-  * actualizar un producto
+  * Lista de productos
+  * Lista de productos con el estado del stock seleccionado
+  * Descargar un producto seleccionado por su ID
+  * Descargar un producto seleccionado por su ID con el estado del stock escogido
+  * Añadir un producto
+  * Actualizar un producto
 * Listas de precios
-  * conjunto de listas de precios
-  * añadir una lista de precios
-  * actualizar una lista de precios
-  * eliminar una lista de precios
+  * Conjunto de listas de precios
+  * Añadir una lista de precios
+  * Actualizar una lista de precios
+  * Eliminar una lista de precios
+* Documentos de almacén
+  * Todos documentos de almacén
+  * Descargar un documento de almacén por su ID
+  * Añadir documento de almacén TA
+  * Añadir documento de almacén IM
+  * Añadir documento de almacén SM
+  * Añadir documento de almacén IM para un cliente, departamento y producto ya existente 
+  * Actualizar un documento
+  * Eliminar un documento
+  * Vincular las facturas existentes con el documento de almacén
+* Pagos
+  * Todos los pagos
+  * Descargar un pago concreto por su ID
+  * Añadir nuevo pago
+  * Descargar pagos con los datos de facturas vinculadas
+  * Añadir nuevo pago vinculado con la factura existente
+  * Actualizar un pago
+  * Eliminar un pago

@@ -30,4 +30,19 @@ Los ejemplos de API de BitFactura se encuentran tambien en el sistema de BitFact
   * Añadir archivo adjunto
 * Enlace para ver factura y descargarla en PDF
 * Ejemplos del uso - compra del curso
-* 
+* Facturas - especificación, tipos de campos
+* Clientes
+  * lista de clientes
+  * buscar de clientes por nombre, e-mail, nombre corto o número NIF
+  * descargar un cliente seleccionado por ID
+  * descargar un cliente seleccionado por ID externo
+  * añadir un cliente
+  * actualizar un cliente
+  * eliminar un cliente
+* Productos
+  * lista de productos
+  * lista de productos con el estado del stock seleccionado
+  * descargar un producto seleccionado por ID
+  * descargar un producto seleccionado por ID con el estado del stock escogido
+  * añadir un producto
+  * actualizar un producto

@@ -46,3 +46,8 @@ Los ejemplos de API de BitFactura se encuentran tambien en el sistema de BitFact
   * descargar un producto seleccionado por ID con el estado del stock escogido
   * añadir un producto
   * actualizar un producto
+* Listas de precios
+  * conjunto de listas de precios
+  * añadir una lista de precios
+  * actualizar una lista de precios
+  * eliminar una lista de precios

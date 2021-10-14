@@ -6,7 +6,7 @@ Gracias a API puedes generar y administrar facturas/recibos/documentos contables
 Los ejemplos de API de BitFactura se encuentran tambien en el sistema de BitFactura después de iniciar la sesión en menú <strong> Ajustes > API </strong> y en la página https://bitfactura.bitfactura.com/api 
 
 ## ÍNDICE
-* API Token
+* <a href>="#API-Token">API Token</a>
 * Parámetros adicionales disponibles al descargar la lista de récords
 * Facturas - ejemplos del uso
   * Descargar facturas del mes actual

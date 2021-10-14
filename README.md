@@ -69,3 +69,31 @@ Los ejemplos de API de BitFactura se encuentran tambien en el sistema de BitFact
   * Añadir nuevo pago vinculado con la factura existente
   * Actualizar un pago
   * Eliminar un pago
+* Categorías
+  * Lista de categorías
+  * Descargar nueva categoría por su ID
+  * Añadir nueva categoría
+  * Actualizar categoría
+  * Eliminar categoría de un ID indicado
+* Almacenes
+  * Lista de almacenes
+  * Descargar un almacén seleccionado por su ID
+  * Añadir nuevo almacén
+  * Actualizar almacén
+  * Eliminar almacén de un ID indicado
+* Departamentos
+  * Lista de departamentos
+  * Descargar un departamento por su ID
+  * Añadir nuevo departamento
+  * Actualizar un departamento
+  * Eliminar departamento de un ID indicado
+* Inicio de sesión y descargar del Token por API
+* Cuentas del sistema
+* Ejemplos en PHP y Ruby
+
+
+## API Token
+<code>API_TOKEN</code> token hay que descargar de los ajustes de aplicación (Ajustes > Ajustes de cuenta> Integración > Código de autorización de API)
+
+## Parámetros adicionales disponibles al descargar la lista de récords
+

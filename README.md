@@ -96,4 +96,24 @@ Los ejemplos de API de BitFactura se encuentran tambien en el sistema de BitFact
 <code>API_TOKEN</code> token hay que descargar de los ajustes de aplicación (Ajustes > Ajustes de cuenta> Integración > Código de autorización de API)
 
 ## Parámetros adicionales disponibles al descargar la lista de récords
+Se puede utilizar paramentros adicionales, los mismos utilizados en la aplicación, por ejemplo `page=`, `period=` etc.
+
+Parámetro `page=` permite iterar registtros paginados. EL valor predeterminado es de `1` y muestra primeros N de records, donde N es el límite de cantidad de records. Para obtener N posteriores hay que causar una acción con parámentro `page=2`, etc.
+
+Parámetro `period=` facilita escoger records de un período específico. 
+Puede tener los siguientes valores:
+- last_12_months
+- this_month
+- last_30_days
+- last_month
+- this_year
+- last_year
+- all
+- more (aquí hay que introducir parámentros adicionales date_from (p. ej. "2018-12-16") y date_to (p. ej. "2018-12-21"))
+
+Parámetro `include_positions=` con el valor `true` facilita descargar la lista de records con las posiciones 
+
+Parámetro `income=` con el valor `no` facilita descargar facturas de gasto 
+
+<a name="examples"/>
 

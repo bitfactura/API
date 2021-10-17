@@ -6,9 +6,9 @@ Gracias a API puedes generar y administrar facturas/recibos/documentos contables
 Los ejemplos de API de BitFactura se encuentran tambien en el sistema de BitFactura después de iniciar la sesión en menú <strong> Ajustes > API </strong> y en la página https://bitfactura.bitfactura.com/api 
 
 ## ÍNDICE
-* API Token
-* Parámetros adicionales disponibles al descargar la lista de récords
-* Facturas - ejemplos del uso
+* [API Token](#token)
+* [Parámetros adicionales disponibles al descargar la lista de récords](#list_params)
+* [Facturas - ejemplos del uso](#examples)
   * Descargar facturas del mes actual
   * Descargar facturas con las posiciones
   * Facturas de un cliente
@@ -91,9 +91,12 @@ Los ejemplos de API de BitFactura se encuentran tambien en el sistema de BitFact
 * Cuentas del sistema
 * Ejemplos en PHP y Ruby
 
+<a name="token"/>
 
 ## API Token
 <code>API_TOKEN</code> token hay que descargar de los ajustes de aplicación (Ajustes > Ajustes de cuenta> Integración > Código de autorización de API)
+
+<a name="list_params"/>
 
 ## Parámetros adicionales disponibles al descargar la lista de récords
 Se puede utilizar paramentros adicionales, los mismos utilizados en la aplicación, por ejemplo `page=`, `period=` etc.

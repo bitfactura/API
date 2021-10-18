@@ -796,7 +796,7 @@ Campo: `np_tax_kind` - base de aplicación de N/A
     "not_specified" - no defiido
 ```
 
-Pole: `procedure_designations` - indicaciones sobre los procedimientos
+Campo: `procedure_designations` - indicaciones sobre los procedimientos
 ```shell
   "SW" - Dostawa w ramach sprzedaży wysyłkowej z terytorium kraju, o której mowa w art. 23 ustawy,
   "EE" - Świadczenie usług telekomunikacyjnych, nadawczych i elektronicznych, o których mowa w art. 28k ustawy,

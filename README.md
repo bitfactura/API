@@ -796,22 +796,751 @@ Campo: `np_tax_kind` - base de aplicación de N/A
     "not_specified" - no defiido
 ```
 
-Campo: `procedure_designations` - indicaciones sobre los procedimientos
+## Clientes
+
+<a name="k1"/>
+Lista de clientes
+
 ```shell
-  "SW" - Dostawa w ramach sprzedaży wysyłkowej z terytorium kraju, o której mowa w art. 23 ustawy,
-  "EE" - Świadczenie usług telekomunikacyjnych, nadawczych i elektronicznych, o których mowa w art. 28k ustawy,
-  "TP" - Istniejące powiązania między nabywcą a dokonującym dostawy towarów lub usługodawcą, o których mowa w art. 32 ust. 2 pkt 1 ustawy,
-  "TT_WNT" - Wewnątrzwspólnotowe nabycie towarów dokonane przez drugiego w kolejności podatnika VAT w ramach transakcji trójstronnej w procedurze uproszczonej, o której mowa w dziale XII rozdziale 8 ustawy,
-  "TT_D" - Dostawa towarów poza terytorium kraju dokonana przez drugiego w kolejności podatnika VAT w ramach transakcji trójstronnej w procedurze uproszczonej, o której mowa w dziale XII rozdziale 8 ustawy,
-  "MR_T" - Świadczenie usług turystyki opodatkowane na zasadach marży zgodnie z art. 119 ustawy,
-  "MR_UZ" - Dostawa towarów używanych, dzieł sztuki, przedmiotów kolekcjonerskich i antyków, opodatkowana na zasadach marży zgodnie z art. 120 ustawy,
-  "I_42" - Wewnątrzwspólnotowa dostawa towarów następująca po imporcie tych towarów w ramach procedury celnej 42 (import),
-  "I_63" - Wewnątrzwspólnotowa dostawa towarów następująca po imporcie tych towarów w ramach procedury celnej 63 (import),
-  "B_SPV" - Transfer bonu jednego przeznaczenia dokonany przez podatnika działającego we własnym imieniu, opodatkowany zgodnie z art. 8a ust. 1 ustawy,
-  "B_SPV_DOSTAWA" - Dostawa towarów oraz świadczenie usług, których dotyczy bon jednego przeznaczenia na rzecz podatnika, który wyemitował bon zgodnie z art. 8a ust. 4 ustawy,
-  "B_MPV_PROWIZJA" - Świadczenie usług pośrednictwa oraz innych usług dotyczących transferu bonu różnego przeznaczenia, opodatkowane zgodnie z art. 8b ust. 2 ustawy,
-  "MPP" - Transakcja objęta obowiązkiem stosowania mechanizmu podzielonej płatności
+curl "https://YOUR_DOMAIN.bitfactura.com/clients.json?api_token=API_TOKEN&page=1"
 ```
+
+<a name="k1b"/>
+Buscar de clientes por nombre, e-mail, nombre corto o número NIF
+
+```shell
+curl "https://YOUR_DOMAIN.bitfactura.com/clients.json?api_token=API_TOKEN&name=CLIENT_NAME"
+curl "https://YOUR_DOMAIN.bitfactura.com/clients.json?api_token=API_TOKEN&email=EMAIL_ADDRESS"
+curl "https://YOUR_DOMAIN.bitfactura.com/clients.json?api_token=API_TOKEN&shortcut=SHORT_NAME"
+curl "https://YOUR_DOMAIN.bitfactura.com/clients.json?api_token=API_TOKEN&tax_no=TAX_NO"
+```
+
+<a name="k2"/>
+Descargar un cliente seleccionado por su ID
+
+```shell
+curl "https://YOUR_DOMAIN.bitfactura.com/clients/100.json?api_token=API_TOKEN"
+```
+
+<a name="k2b"/>
+Descargar un cliente seleccionado por su ID externo
+
+```shell
+curl "https://YOUR_DOMAIN.bitfactura.com/clients.json?external_id=100&api_token=API_TOKEN"
+```
+
+<a name="k3"/>
+Añadir un cliente
+
+```shell
+curl https://YOUR_DOMAIN.bitfactura.com/clients.json \
+    -H 'Accept: application/json' \
+    -H 'Content-Type: application/json' \
+    -d '{"api_token": "API_TOKEN",
+        "client": {
+            "name": "Cliente1",
+            "tax_no": "5252445767",
+            "bank" : "banco1",
+            "bank_account" : "bank_account1",
+            "city" : "city1",
+            "country" : "",
+            "email" : "email@gmail.com",
+            "person" : "person1",
+            "post_code" : "post-code1",
+            "phone" : "phone1",
+            "street" : "street1"
+        }}'
+```
+
+<a name="k4"/>
+Actualizar un cliente
+
+```shell
+curl https://YOUR_DOMAIN.bitfactura.com/clients/111.json \
+    -X PUT \
+    -H 'Accept: application/json'  \
+    -H 'Content-Type: application/json'  \
+    -d '{"api_token": "API_TOKEN",
+        "client": {
+            "name": "Klient2",
+            "tax_no": "52524457672",
+            "bank" : "bank2",
+            "bank_account" : "bank_account2",
+            "city" : "city2",
+            "country" : "PL",
+            "email" : "email@gmail.com",
+            "person" : "person2",
+            "post_code" : "post-code2",
+            "phone" : "phone2",
+            "street" : "street2"
+        }}'
+```
+<a name="k5"/>
+Eliminar un cliente
+
+```shell
+curl -X DELETE "https://YOUR_DOMAIN.bitfactura.comclients/CLIENT_ID.json?api_token=API_TOKEN"
+```
+
+<a name="products"/>
+
+## Productos
+
+<a name="p1"/>
+Lista de productos
+
+```shell
+curl "https://YOUR_DOMAIN.bitfactura.com/products.json?api_token=API_TOKEN&page=1"
+```
+
+<a name="p2"/>
+Lista de productos con el estado del stock seleccionado
+
+```shell
+curl "https://YOUR_DOMAIN.bitfactura.com/products.json?api_token=API_TOKEN&warehouse_id=WAREHOUSE_ID&page=1"
+```
+
+<a name="p3"/>
+Descargar un producto seleccionado por su ID
+
+```shell
+curl "https://YOUR_DOMAIN.bitfactura.com/products/100.json?api_token=API_TOKEN"
+```
+
+<a name="p4"/>
+Descargar un producto seleccionado por su ID con el estado del stock escogido
+
+```shell
+curl "https://YOUR_DOMAIN.bitfactura.com/products/100.json?api_token=API_TOKEN&warehouse_id=WAREHOUSE_ID"
+```
+
+<a name="p5"/>
+Añadir un producto
+
+```shell
+curl https://YOUR_DOMAIN.bitfactura.com/products.json \
+    -H 'Accept: application/json'  \
+    -H 'Content-Type: application/json'  \
+    -d '{"api_token": "API_TOKEN",
+        "product": {
+            "name": "PoroductAA",
+            "code": "A001",
+            "price_net": "100",
+            "tax": "23"
+        }}'
+```
+
+<a name="p6"/>
+Actualizar un producto
+
+```shell
+curl https://YOUR_DOMAIN.bitfactura.comproducts/333.json \
+    -X PUT \
+    -H 'Accept: application/json'  \
+    -H 'Content-Type: application/json'  \
+    -d '{"api_token": "API_TOKEN",
+        "product": {
+            "name": "PoroductAA2",
+            "code": "A0012",
+            "price_gross": "102",
+	    "tax": "23"
+        }}'
+```
+**OJO:** Precio bruto se calcula a base del valor neto e impuesto, no se lo puede editar directamente por API. 
+
+
+<a name="price_lists"/>
+## Listas de precios
+
+<a name="warehouse_documents"/>
+
+<a name="pricel1"/>
+Conjunto de listas de precios
+
+```shell
+curl "https://YOUR_DOMAIN.bitfactura.com/price_lists.json?api_token=API_TOKEN"
+```
+se puede utilizar los mismos parámetros que se utilizan en la aplicación (en la página con la lista de facturas) 
+
+<a name="pricel2"/>
+Añadir una lista de precios
+
+```shell
+curl https://YOUR_DOMAIN.bitfactura.com/price_lists.json
+                -H 'Accept: application/json'
+                -H 'Content-Type: application/json'
+                -d '{
+                "api_token": "API_TOKEN",
+                "price_list": {
+                    "name": "Nombre de lista de precios",
+		    "description": "Descripción",
+		    "currency": "EUR",
+                    "price_list_positions_attributes": {
+		    	"0": {
+				"priceable_id": "ID del producto",
+				"priceable_name": "Nombre del producto",
+				"priceable_type": "Product",
+				"use_percentage": "0",
+				"percentage": "",
+				"price_net": "111.0",
+				"price_gross": "136.53",
+				"use_tax": "1",
+				"tax": "23"
+			}
+		    }
+                }}'
+```
+
+<a name="pricel3"/>
+Actualizar una lista de precios
+
+```shell
+curl https://YOUR_DOMAIN.bitfactura.com/price_lists/100.json
+		-X PUT
+                -H 'Accept: application/json'
+                -H 'Content-Type: application/json'
+                -d '{
+                "api_token": "API_TOKEN",
+                "price_list": {
+                    "name": "Nombre de lista de precios",
+		    "description": "Descripción",
+		    "currency": "EUR",
+                }}'
+```
+
+<a name="pricel4"/>
+Eliminar una lista de precios
+
+```shell
+curl -X DELETE "https://YOUR_DOMAIN.bitfactura.com/price_lists/100.json?api_token=API_TOKEN"
+```
+
+## Documentos de almacén
+
+<a name="wd1"/>
+WTodos documentos de almacén
+
+```shell
+curl "https://YOUR_DOMAIN.bitfactura.com/warehouse_documents.json?api_token=API_TOKEN"
+```
+se puede utilizar los mismos parámetros que se utilizan en la aplicación (en la página con la lista de facturas) 
+
+<a name="wd2"/>
+Descargar un documento de almacén por su ID
+
+```shell
+curl "https://YOUR_DOMAIN.bitfactura.com/warehouse_documents/555.json?api_token=API_TOKEN"
+```
+
+<a name="wd3a"/>
+Añadir documento de almacén TA
+
+```shell
+curl https://YOUR_DOMAIN.bitfactura.com/warehouse_documents.json
+                -H 'Accept: application/json'
+                -H 'Content-Type: application/json'
+                -d '{
+                "api_token": "API_TOKEN",
+                "warehouse_document": {
+                    "kind":"mm",
+                    "number": null,
+                    "warehouse_id": "1",
+                    "issue_date": "2017-10-23",
+                    "department_name": "Department1 SA",
+                    "client_name": "Client1 SA",
+                    "warehouse_actions":[
+                        {"product_name":"Produkt A1", "purchase_tax":23, "purchase_price_net":10.23, "quantity":1, "warehouse2_id":13}
+                    ]
+                }}'
+```
+
+<a name="wd3"/>
+Añadir documento de almacén IM
+
+```shell
+curl https://YOUR_DOMAIN.bitfactura.com/warehouse_documents.json
+				-H 'Accept: application/json'
+				-H 'Content-Type: application/json'
+				-d '{
+				"api_token": "API_TOKEN",
+				"warehouse_document": {
+					"kind":"pz",
+					"number": null,
+					"warehouse_id": "1",
+					"issue_date": "2017-10-23",
+					"department_name": "Department1 SA",
+					"client_name": "Client1 SA",
+					"warehouse_actions":[
+						{"product_name":"Producto A1", "purchase_tax":23, "purchase_price_net":10.23, "quantity":1},
+						{"product_name":"Producto A2", "purchase_tax":0, "purchase_price_net":50, "quantity":2}
+					]
+				}}'
+```
+
+<a name="wd4"/>
+Añadir documento de almacén SM
+
+```shell
+curl https://YOUR_DOMAIN.bitfactura.com/warehouse_documents.json
+				-H 'Accept: application/json'
+				-H 'Content-Type: application/json'
+				-d '{
+				"api_token": "API_TOKEN",
+				"warehouse_document": {
+					"kind":"wz",
+					"number": null,
+					"warehouse_id": "1",
+					"issue_date": "2017-10-23",
+					"department_name": "Department1 SA",
+					"client_name": "Client1 SA",
+					"warehouse_actions":[
+						{"product_id":"333", "tax":23, "price_net":10.23, "quantity":1},
+						{"product_id":"333", "tax":0, "price_net":50, "quantity":2}
+					]
+				}}'
+```
+
+<a name="wd5"/>
+Añadir documento de almacén IM para un cliente, departamento y producto ya existente 
+
+```shell
+curl https://YOUR_DOMAIN.bitfactura.com/warehouse_documents.json
+				-H 'Accept: application/json'
+				-H 'Content-Type: application/json'
+				-d '{
+				"api_token": "API_TOKEN",
+				"warehouse_document": {
+					"kind":"pz",
+					"number": null,
+					"warehouse_id": "1",
+					"issue_date": "2017-10-23",
+					"department_id": "222",
+					"client_id": "111",
+					"warehouse_actions":[
+						{"product_id":"333", "purchase_tax":23, "price_net":10.23, "quantity":1},
+						{"product_id":"333", "purchase_tax":0, "price_net":50, "quantity":2}
+					]
+				}}'
+```
+
+<a name="wd6"/>
+Actualizar un documento
+
+```shell
+curl https://YOUR_DOMAIN.bitfactura.com/warehouse_documents/555.json
+			 	-X PUT
+				-H 'Accept: application/json'
+				-H 'Content-Type: application/json'
+				-d '{"api_token": "API_TOKEN",
+					"warehouse_document": {
+						"client_name": "New client name SA"
+				    }}'
+```
+
+<a name="wd7"/>
+Eliminar un documento
+
+```shell
+curl -X DELETE "https://YOUR_DOMAIN.bitfactura.com/warehouse_documents/100.json?api_token=API_TOKEN"
+```
+
+<a name="wd8"/>
+Vincular las facturas existentes con el documento de almacén
+
+```shell
+curl https://YOUR_DOMAIN.bitfactura.com/warehouse_documents/555.json
+				-X PUT
+				-H 'Accept: application/json'
+				-H 'Content-Type: application/json'
+				-d '{"api_token": "API_TOKEN",
+					"warehouse_document": {
+						"invoice_ids": [
+							100,
+							111
+						]
+					}}'
+```
+
+<a name="payments"/>
+
+## Pagos
+
+<a name="pl1"/>
+Todos pagos
+
+```shell
+curl "https://YOUR_DOMAIN.bitfactura.com/banking/payments.json?api_token=API_TOKEN"
+```
+
+se puede utilizar los mismos parámetros que se utilizan en la aplicación (en la página con la lista de facturas) 
+
+
+<a name="pl2"/>
+Descargar un pago concreto por su ID
+
+```shell
+curl "https://YOUR_DOMAIN.bitfactura.com/banking/payment/100.json?api_token=API_TOKEN"
+```
+
+<a name="pl3"/>
+Añadir nuevo pago
+
+```shell
+curl https://YOUR_DOMAIN.bitfactura.com/banking/payments.json \
+				-H 'Accept: application/json' \
+				-H 'Content-Type: application/json' \
+				-d '{
+					"api_token": "API_TOKEN",
+					"banking_payment": {
+						"name":"Payment 001",
+						"price": 100.05,
+						"invoice_id": null,
+						"paid":true,
+						"kind": "api"
+				    }}'
+```
+
+<a name="pl4"/>
+Descargar pagos con los datos de facturas vinculadas
+
+```shell
+curl "https://YOUR_DOMAIN.bitfactura.com/banking/payments.json?include=invoices&api_token=API_TOKEN"
+```
+<a name="pl5"/>
+Añadir nuevo pago vinculado con la factura existente
+
+```shell
+curl https://YOUR_DOMAIN.bitfactura.com/banking/payments.json \
+				-H 'Accept: application/json' \
+				-H 'Content-Type: application/json' \
+				-d '{
+					"api_token": "API_TOKEN",
+					"banking_payment": {
+						"name":"Payment 003",
+						"price": 200,
+						"invoice_ids": [555, 666],
+						"paid":true,
+						"kind": "api"
+						}}'
+```
+
+Hay que recordar que las facturas se pagan según el orden del atributo `invoice_ids`. Si factura con ID = 555 se ha expedido con el valor de 100 EUR y factura con ID = 666 con el valor de 200 EUR, después de añadir pago la primera factura se pagará en su totalidad, y la segundo en la mitad. 
+
+
+<a name="pl6"/>
+Actualizar un pago
+
+```shell
+curl https://YOUR_DOMAIN.bitfactura.com/banking/payments/555.json
+				-X PATCH
+				-H 'Accept: application/json'
+				-H 'Content-Type: application/json'
+				-d '{"api_token": "API_TOKEN",
+					"banking_payment": {
+						"name": "New payment name",
+						"price": 100
+						}}'
+```
+
+<a name="pl7"/>
+Eliminzr un pago
+
+```shell
+curl -X DELETE "https://YOUR_DOMAIN.bitfactura.com/banking/payments/555.json?api_token=API_TOKEN"
+```
+
+<a name="categories"/>
+
+## Categorías
+
+<a name="cat1"/>
+Lista de categorías
+
+```shell
+curl "http://YOUR_DOMAIN.bitfactura.com/categories.json?api_token=API_TOKEN"
+```
+
+<a name="cat2"/>
+Descargar nueva categoría por su ID
+
+```shell
+curl "http://YOUR_DOMAIN.bitfactura.com/categories/100.json?api_token=API_TOKEN"
+```
+
+<a name="cat3"/>
+Añadir nueva categoría
+
+```shell
+curl https://YOUR_DOMAIN.bitfactura.com/categories.json
+				-H 'Accept: application/json'
+				-H 'Content-Type: application/json'
+				-d '{
+				"api_token": "API_TOKEN",
+				"category": {
+					"name":"my_category",
+					"description": null
+				}}'
+```
+
+<a name="cat4"/>
+Actualizar categoría
+
+```shell
+curl https://YOUR_DOMAIN.bitfactura.com/categories/100.json
+				-X PUT
+				-H 'Accept: application/json'
+				-H 'Content-Type: application/json'
+				-d '{
+				"api_token": "API_TOKEN",
+				"category": {
+					"name":"my_category",
+					"description": "new_description"
+				}}'
+```
+
+
+<a name="cat5"/>
+Eliminar categoría de un ID indicado
+
+```shell
+curl -X DELETE "https://YOUR_DOMAIN.bitfactura.com/categories/100.json?api_token=API_TOKEN"
+```
+
+<a name="warehouses"/>
+
+## Almacenes
+
+<a name="wh1"/>
+Lista de almacenes
+
+```shell
+curl "http://YOUR_DOMAIN.bitfactura.com/warehouses.json?api_token=API_TOKEN"
+```
+
+<a name="wh2"/>
+Descargar un almacén seleccionado por su ID
+
+```shell
+curl "http://YOUR_DOMAIN.bitfactura.com/warehouses/100.json?api_token=API_TOKEN"
+```
+
+<a name="wh3"/>
+Añadir nuevo almacén
+
+```shell
+curl https://YOUR_DOMAIN.bitfactura.com/warehouses.json
+				-H 'Accept: application/json'
+				-H 'Content-Type: application/json'
+				-d '{
+				"api_token": "API_TOKEN",
+				"warehouse": {
+					"name":"my_warehouse",
+					"kind": null,
+					"description": null
+				}}'
+```
+
+<a name="wh4"/>
+Actualizar almacén
+
+```shell
+curl https://YOUR_DOMAIN.bitfactura.com/warehouses/100.json
+				-X PUT
+				-H 'Accept: application/json'
+				-H 'Content-Type: application/json'
+				-d '{
+				"api_token": "API_TOKEN",
+				"warehouse": {
+					"name":"my_category",
+					"kind": null,
+					"description": "new_description"
+				}}'
+```
+
+
+<a name="wh5"/>
+Eliminar almacén de un ID indicado
+
+```shell
+curl -X DELETE "https://YOUR_DOMAIN.bitfactura.com/warehouses/100.json?api_token=API_TOKEN"
+```
+
+
+<a name="departments"/>
+
+## Departamentos
+
+<a name="dep1"/>
+Lista de departamentos
+
+```shell
+curl "http://YOUR_DOMAIN.bitfactura.com/departments.json?api_token=API_TOKEN"
+```
+
+<a name="dep2"/>
+Descargar un departamento por su ID
+
+```shell
+curl "http://YOUR_DOMAIN.bitfactura.com/departments/100.json?api_token=API_TOKEN"
+```
+
+<a name="dep3"/>
+Añadir nuevo departamento
+
+```shell
+curl https://YOUR_DOMAIN.bitfactura.com/departments.json
+				-H 'Accept: application/json'
+				-H 'Content-Type: application/json'
+				-d '{
+				"api_token": "API_TOKEN",
+				"department": {
+					"name":"my_warehouse",
+					"shortcut": "short_name",
+					"tax_no": "-"
+				}}'
+```
+
+<a name="dep4"/>
+Actualizar un departamento
+
+```shell
+curl https://YOUR_DOMAIN.bitfactura.com/departments/100.json
+        -X PUT
+        -H 'Accept: application/json'
+        -H 'Content-Type: application/json'
+        -d '{
+        "api_token": "API_TOKEN",
+        "department": {
+          "name":"new_name",
+          "shortcut": "new_short_name",
+          "tax_no": "xxx-xxx-xx-xx"
+        }}'
+```
+
+<a name="dep5"/>
+Eliminar departamento de un ID indicado
+
+```shell
+curl -X DELETE "https://YOUR_DOMAIN.bitfactura.com/departments/100.json?api_token=API_TOKEN"
+```
+
+
+<a name="get_token_by_api"/>
+
+## Inicio de sesión y descargar del Token por API
+
+```shell
+curl https://app.bitfactura.com/login.json \
+    -H 'Accept: application/json'  \
+    -H 'Content-Type: application/json' \
+    -d '{
+            "login": "login_or_email",
+            "password": "password",
+	    "integration_token": ""
+    }'
+```
+
+Está solicitud devuelve el token y la información sobre URL de cuenta en BitFactura (campos `prefix` y `url`):
+
+```shell
+{
+	"login":"juan",
+	"email":"email@test.com",
+	"prefix":"YYYYYYY",
+	"url":"https://YYYYYYY.bitfactura.com",
+	"first_name":"Juan",
+	"last_name":"Perez",
+	"api_token":"XXXXXXXXXXXXXX"
+}
+```
+
+OJO: api_token se devuelve solo si el usuario tiene generado API Token (usuario lo puede añadir en ajustes de cuenta) 
+
+
+<a name="accounts"/>
+
+## Cuentas del sistema
+
+La opción disponible para Socios que quieren crear cuentas en BitFactura desde su aplicación. Pueden ser, por ejemplo, proveedores de tiendas en línea, sistemas de reservación u otros sistemas que quieren compartir con sus usuarios la función de generar facturas. 
+
+Un cliente en portal del Socio puede crear una cuenta a través de un botón y empezar a generar facuras de inmediato (no tiene que crear una cuenta en BitFactura.com por sí mismo).
+
+
+Campos user.login, user.from_partner, user, company no son oblitatorios 
+
+```shell
+curl https://YOUR_DOMAIN.bitfactura.com/account.json \
+    -H 'Accept: application/json' \
+    -H 'Content-Type: application/json' \
+    -d '{
+            "api_token": "API_TOKEN",
+            "account": {
+                "prefix": "prefix1",
+		"lang": "es"
+            },
+            "user": {
+                "login": "login1",
+                "email": "email1@email.com",
+                "password": "password1",
+                "from_partner": "PARTNER_CODE"
+            },
+            "company": {
+                "name": "Company1",
+                "tax_no": "5252445700",
+                "post_code": "00-112",
+                "city": "Madrid",
+                "street": "Street 1/10",
+                "person": "Juan Perez",
+                "bank": "Banco1",
+                "bank_account": "111222333444555666111"
+            },
+	    "integration_token": ""
+        }'
+
+```
+
+OJO: parámetro ```integration_token``` es oblitatorio si queremos descargar api_token actual del usuario (para obtener _integration_token_ para tu aplicación integrada ponte en contacto con nosotros)
+
+
+Después de crear cuenta se devuelven: 
+
+```shell
+
+{
+	"prefix":"prefix126", - prefijo de la cuenta creada (puede ser diferente al  introducido si ya ha sido usado) 
+	"api_token":"62YPJfIekoo111111", - código de acceso a cuenta creada 
+	"url":"https://prefix126.bitfactura.com", - url de la cuenta creada 
+	"login":"login1", - login del usuario  (puede ser diferente al introducido si ya ha sido usado)
+	"email":"email1@email.com"
+}
+```
+
+Otros campos disponibles al crear nueva cuenta (útil al integrar)
+
+```shell
+	"account": {
+		"prefix": "prefijo-de-cuenta",
+		"lang": "es",
+		"integration_fast_login": true - permite el inico de sesión automático para tus usuarios en BitFactura)
+		"integration_logout_url": "http://tudominio.com/" - permite a tus usuarios volver a tu página después de cerrar la sesión en BitFactura
+	}
+```
+
+Descargar información sobre la cuenta:
+
+```shell
+curl "https://YOUR_DOMAIN.bitfactura.com/account.json?api_token=API_TOKEN&integration_token="
+```
+
+<a name="codes"/>
+
+## Ejemplos en PHP y Ruby
+
+<https://github.com/radgost/fakturownia-api/blob/master/example1.php/>
+
+<https://github.com/radgost/fakturownia-api/blob/master/example1.rb/>
+
+Ruby Gem para la integración con BitFactura.com: <https://github.com/kkempin/fakturownia/>
 
 
 
